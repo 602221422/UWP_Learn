@@ -1,0 +1,33 @@
+﻿<Page
+    x:Class="ComplexStackPanel.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:ComplexStackPanel"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <StackPanel Orientation="Horizontal" VerticalAlignment="Top">
+            <Rectangle Width="200" Height="200" Fill="Bisque" />
+            <StackPanel Orientation="Vertical">
+                <StackPanel Orientation="Horizontal">
+                    <Rectangle Width="100" Height="100" Fill="AliceBlue" />
+                    <StackPanel Orientation="Vertical">
+                        <Rectangle Width="100" Height="50" Fill="RosyBrown" d:IsLocked="True" />
+                        <!-- islock这个属性值是给设计者使用的，运行时会被忽略-->
+                        <Rectangle Width="100" Height="50" Fill="DarkCyan" />
+                    </StackPanel>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Rectangle Height="100" Width="100" Fill="BurlyWood" />
+                    <StackPanel Orientation="Vertical">
+                        <Rectangle Height="50" Width="100" Fill="DarkKhaki" />
+                        <Rectangle Height="50" Width="100" Fill="DimGray" />
+                    </StackPanel>
+                </StackPanel>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Page>
