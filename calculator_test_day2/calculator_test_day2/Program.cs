@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace calculator_test_day2
 {
-    class Program
+    public class calculate
     {
-        public static double Calculate_subtracting(double x, double y, string i)
+        public double Calculate_subtracting(double x, double y, string i)
         {
             switch (i)
             {
@@ -25,11 +25,11 @@ namespace calculator_test_day2
 
             }
         }
-        public static double Calculate_sqrt(double x)
+        public double Calculate_sqrt(double x)
         {
             return Math.Sqrt(x);
         }
-        public static double Calculate_power(double x, int number)
+        public double Calculate_power(double x, int number)
         {
             double sum = 1;
             for (int i = 0; i < number; i++)
@@ -38,8 +38,12 @@ namespace calculator_test_day2
             }
             return sum;
         }
+    }
+    class Program
+    {
         static void Main(string[] args)
         {
+            calculate ca = new calculate();
             while (true)
             {
                 Console.WriteLine("Please enter the calculation method you wish to select");
@@ -55,19 +59,19 @@ namespace calculator_test_day2
                     double op1 = double.Parse(Console.ReadLine());
                     Console.WriteLine("Please enter {0}", (operation == "/" ? "divisor" : "the second operand"));
                     double op2 = double.Parse(Console.ReadLine());
-                    Console.WriteLine("The result is :{0} {1} {2} = {3}", op1, operation, op2, Calculate_subtracting(op1, op2, operation));
+                    Console.WriteLine("The result is :{0} {1} {2} = {3}", op1, operation, op2, ca.Calculate_subtracting(op1, op2, operation));
                 }else if (i == "2")
                 {
                     Console.WriteLine("Please enter the operand");
                     double op = double.Parse(Console.ReadLine());
-                    Console.WriteLine("{0} sqrt is {1}", op, Calculate_sqrt(op));
+                    Console.WriteLine("{0} sqrt is {1}", op, ca.Calculate_sqrt(op));
                 }else if (i == "3")
                 {
                     Console.WriteLine("Please enter the operand");
                     double op = double.Parse(Console.ReadLine());
                     Console.WriteLine("Please enter the Nth power");
                     int op2 = int.Parse(Console.ReadLine());
-                    Console.WriteLine("The result is {0} ^ {1} = {2}", op, op2, Calculate_power(op, op2));
+                    Console.WriteLine("The result is {0} ^ {1} = {2}", op, op2, ca.Calculate_power(op, op2));
                 }else
                 {
                     Console.WriteLine("Input error, please re - enter");

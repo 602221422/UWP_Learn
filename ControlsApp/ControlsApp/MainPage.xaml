@@ -1,0 +1,39 @@
+﻿<Page
+    x:Class="ControlsApp.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:ControlsApp"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <StackPanel>
+        <ListView  x:Name="listview1">
+            <ListView.Items>
+                <x:String>111</x:String>
+                <x:String>222</x:String>
+                <x:String>333</x:String>
+                <x:String>444</x:String>
+            </ListView.Items>
+        </ListView>
+        <ComboBox 
+            x:Name="myCombo" 
+            Header="head" 
+            Height="88"
+            Width="296"
+            ItemsSource="{x:Bind fonts}" 
+            DisplayMemberPath="Source"/>
+        <GridView  
+            x:Name="gridview1" 
+            Height="200" 
+            Width="200">
+            <GridView.Items>
+                <x:String>111</x:String>
+                <x:String>222</x:String>
+                <x:String>333</x:String>
+                <x:String>444</x:String>
+            </GridView.Items>
+        </GridView>
+    </StackPanel>
+</Page>

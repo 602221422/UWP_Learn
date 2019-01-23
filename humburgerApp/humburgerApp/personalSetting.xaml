@@ -1,0 +1,61 @@
+﻿<Page
+    x:Class="humburgerApp.psesonalSetting"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:humburgerApp"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Page.Resources >
+        <Style TargetType="Button">
+            <Setter Property="FontSize"  Value="70"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Width" Value="280"/>
+            <Setter Property="Height" Value="231"/>
+            <Setter Property="Margin" Value="0,0,0,0"/>
+        </Style>
+     </Page.Resources>
+    <Grid Background="Gray">
+        <!--       <Button Style="{StaticResource NavigationBackButtonNormalStyle}"
+                x:Name="BackButton"
+                Click="BackButton_Click"
+                VerticalAlignment="Top"/>-->
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <TextBlock Grid.ColumnSpan="5" x:Name="show" FontSize="88" VerticalAlignment="Center" HorizontalAlignment="Right"></TextBlock>
+        <Button Content="9" Grid.Row="1" x:Name="shu9" Click="Shu9_Click"/>
+        <Button Content="6" Grid.Row="2" x:Name="shu6" Click="Shu6_Click"/>
+        <Button Content="3" Grid.Row="3" x:Name="shu3" Click="Shu3_Click"/>
+        <Button Content="8" Grid.Row="1" Grid.Column="1" x:Name="shu8" Click="Shu8_Click"/>
+        <Button Content="5" Grid.Row="2" Grid.Column="1" x:Name="shu5" Click="Shu5_Click"/>
+        <Button Content="2" Grid.Row="3" Grid.Column="1" x:Name="shu2" Click="Shu2_Click"/>
+        <Button Content="7" Grid.Row="1" Grid.Column="2" x:Name="shu7" Click="Shu7_Click"/>
+        <Button Content="4" Grid.Row="2" Grid.Column="2" x:Name="shu4" Click="Shu4_Click"/>
+        <Button Content="1" Grid.Row="3" Grid.Column="2" x:Name="shu1" Click="Shu1_Click"/>
+        <Button Content="+" Grid.Row="1" Grid.Column="3" x:Name="add"  Click="Add_Click"/>
+        <Button Content="x" Grid.Row="2" Grid.Column="3" x:Name="multiply"/>
+        <Button Content="." Grid.Row="3" Grid.Column="3" x:Name="doc"/>
+        <Button Content="-" Grid.Row="1" Grid.Column="4" x:Name="subtract"/>
+        <Button Content="/" Grid.Row="2" Grid.Column="4" x:Name="divide"/>
+        <Button Content="=" Grid.Row="3" Grid.Column="4" x:Name="equal" Click="Equal_Click"/>
+        <Button Content="0" Grid.Row="4" x:Name="shu0" Click="Shu0_Click"/>
+        <Button Content="sqrt" Grid.Row="4" Grid.Column="1" x:Name="fuhaogen"/>
+        <Button Content="^" Grid.Row="4" Grid.Column="2" x:Name="mi"/>
+        <Button Content="back" Grid.Row="4" Grid.Column="3" x:Name="back"/>
+        <Button Content="restart" Grid.Row="4" Grid.Column="4" x:Name="restart"/>
+    </Grid>
+</Page>
