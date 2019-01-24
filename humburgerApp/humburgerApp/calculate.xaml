@@ -10,11 +10,8 @@
     <Page.Resources >
         <Style TargetType="Button">
             <Setter Property="FontSize"  Value="70"/>
-            <Setter Property="HorizontalAlignment" Value="Center"/>
-            <Setter Property="VerticalAlignment" Value="Center"/>
-            <Setter Property="Width" Value="280"/>
-            <Setter Property="Height" Value="231"/>
-            <Setter Property="Margin" Value="0,0,0,0"/>
+            <Setter Property="HorizontalAlignment" Value="Stretch"/>
+            <Setter Property="VerticalAlignment" Value="Stretch"/>
         </Style>
      </Page.Resources>
     <Grid Background="Gray">
@@ -47,15 +44,15 @@
         <Button Content="4" Grid.Row="2" Grid.Column="2" x:Name="shu4" Click="Shu4_Click"/>
         <Button Content="1" Grid.Row="3" Grid.Column="2" x:Name="shu1" Click="Shu1_Click"/>
         <Button Content="+" Grid.Row="1" Grid.Column="3" x:Name="add"  Click="Add_Click"/>
-        <Button Content="x" Grid.Row="2" Grid.Column="3" x:Name="multiply"/>
-        <Button Content="." Grid.Row="3" Grid.Column="3" x:Name="doc"/>
-        <Button Content="-" Grid.Row="1" Grid.Column="4" x:Name="subtract"/>
-        <Button Content="/" Grid.Row="2" Grid.Column="4" x:Name="divide"/>
+        <Button Content="x" Grid.Row="2" Grid.Column="3" x:Name="multiply" Click="Multiply_Click"/>
+        <Button Content="." Grid.Row="3" Grid.Column="3" x:Name="doc" Click="Doc_Click"/>
+        <Button Content="-" Grid.Row="1" Grid.Column="4" x:Name="subtract" Click="Subtract_Click"/>
+        <Button Content="/" Grid.Row="2" Grid.Column="4" x:Name="divide" Click="Divide_Click"/>
         <Button Content="=" Grid.Row="3" Grid.Column="4" x:Name="equal" Click="Equal_Click"/>
         <Button Content="0" Grid.Row="4" x:Name="shu0" Click="Shu0_Click"/>
-        <Button Content="sqrt" Grid.Row="4" Grid.Column="1" x:Name="fuhaogen"/>
-        <Button Content="^" Grid.Row="4" Grid.Column="2" x:Name="mi"/>
-        <Button Content="back" Grid.Row="4" Grid.Column="3" x:Name="back"/>
-        <Button Content="restart" Grid.Row="4" Grid.Column="4" x:Name="restart"/>
+        <Button Content="sqrt" Grid.Row="4" Grid.Column="1" x:Name="fuhaogen" Click="Fuhaogen_Click"/>
+        <Button Content="^" Grid.Row="4" Grid.Column="2" x:Name="mi" Click="Mi_Click"/>
+        <Button Content="back" Grid.Row="4" Grid.Column="3" x:Name="back" Click="Back_Click"/>
+        <Button Content="restart" Grid.Row="4" Grid.Column="4" x:Name="restart" Click="Restart_Click"/>
     </Grid>
 </Page>

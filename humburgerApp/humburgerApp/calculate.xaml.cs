@@ -50,9 +50,9 @@ namespace humburgerApp
     }
     public sealed partial class psesonalSetting : Page
     {
-        double first,second,result;
-        string number;
-        string sign;
+        double first,second;
+        string number=null;
+        string sign=null;
         calculate ca = new calculate();
         public psesonalSetting()
         {
@@ -113,14 +113,19 @@ namespace humburgerApp
             show.Text += 0;
         }
 
-
         private void Shu9_Click(object sender, RoutedEventArgs e)
         {
             number += 9;
             show.Text += 9;
         }
 
-        private void Add_Click(object sender, RoutedEventArgs e)
+        private void Doc_Click(object sender, RoutedEventArgs e)
+        {
+            number += ".";
+            show.Text += ".";
+        }
+
+        private void Add_Click(object sender, RoutedEventArgs e)   //“+”
         {
             first = Convert.ToDouble(number);
             sign = "+";
@@ -128,10 +133,84 @@ namespace humburgerApp
             number = null;
         }
 
-        private void Equal_Click(object sender, RoutedEventArgs e)
+        private void Subtract_Click(object sender, RoutedEventArgs e)    //“-”
         {
-            second = Convert.ToDouble(number);
-            show.Text = ca.Calculate_subtracting(first, second, sign).ToString();
+            first = Convert.ToDouble(number);
+            sign = "-";
+            show.Text += "-";
+            number = null;
+        }
+
+        private void Multiply_Click(object sender, RoutedEventArgs e)   //“*”
+        {
+            first = Convert.ToDouble(number);
+            sign = "*";
+            show.Text += "*";
+            number = null;
+        }
+
+        private void Divide_Click(object sender, RoutedEventArgs e)   //“/”
+        {
+            first = Convert.ToDouble(number);
+            sign = "/";
+            show.Text += "/";
+            number = null;
+        }
+
+        private void Fuhaogen_Click(object sender, RoutedEventArgs e) //开根号
+        {
+            double i;
+            first = Convert.ToDouble(number);
+            i = ca.Calculate_sqrt(first);
+            show.Text = i.ToString();
+            number = i.ToString();
+        }
+
+        private void Mi_Click(object sender, RoutedEventArgs e)   //求幂
+        {
+            first = Convert.ToDouble(number);
+            sign = "^";
+            show.Text += "^";
+            number = null;
+        }
+
+        private void Back_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Restart_Click(object sender, RoutedEventArgs e)   //重新开始
+        {
+            first = 0;
+            second = 0;
+            sign = null;
+            number = null;
+            show.Text = "";
+        }
+
+        private void Equal_Click(object sender, RoutedEventArgs e)   //求结果
+        {
+            if(sign=="^")
+            {
+                second = Convert.ToDouble(number);
+                int i;
+                i = Convert.ToInt32(second);
+                show.Text = ca.Calculate_power(first, i).ToString();
+                number = ca.Calculate_power(first, i).ToString();
+            }
+            else {
+                second = Convert.ToDouble(number);
+                if(sign == "/"&&second==0)
+                {
+                    show.Text = "除数不能为0，请重新开始";
+                }
+                else
+                {
+                    show.Text = ca.Calculate_subtracting(first, second, sign).ToString();
+                    number = ca.Calculate_subtracting(first, second, sign).ToString();
+                }
+                
+            }
         }
     }
 }

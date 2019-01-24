@@ -7,13 +7,107 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-    <Grid>
+
+    <Page.Resources>
+        <Style x:Key="ComboBoxStyle2" TargetType="ComboBox">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ComboBox">
+                        <Grid x:Name="LayoutRoot" CornerRadius="20">
+                            <!--Background="{TemplateBinding Background}" CornerRadius="20"-->
+                            <!--删除Border的设置    
+                                    BorderThickness="{TemplateBinding BorderThickness}" 
+                                    BorderBrush="{TemplateBinding BorderBrush}" 
+                                    CornerRadius="{TemplateBinding CornerRadius}" -->
+                            <Border x:Name="Background" 
+                                    Background="{TemplateBinding  Background}" 
+                                    Grid.ColumnSpan="2" 
+                                    Grid.Column="0" 
+                                    Control.IsTemplateFocusTarget="True" 
+                                    MinWidth="{ThemeResource ComboBoxThemeMinWidth}" 
+                                    Grid.Row="1"/>
+                            <ContentPresenter 
+                                x:Name="ContentPresenter" 
+                                Grid.Column="0" 
+                                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" 
+                                Margin="{TemplateBinding Padding}" 
+                                Grid.Row="1" 
+                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
+                                <TextBlock 
+                                    x:Name="PlaceholderTextBlock" 
+                                    Foreground="{Binding PlaceholderForeground, RelativeSource={RelativeSource Mode=TemplatedParent}, TargetNullValue={ThemeResource ComboBoxPlaceHolderForeground}}" Text="{TemplateBinding PlaceholderText}"/>
+                            </ContentPresenter>
+                            <TextBox x:Name="EditableText" 
+                                     BorderBrush="Transparent" 
+                                     Grid.ColumnSpan="2" 
+                                     Grid.Column="0"
+                                     Foreground="{Binding PlaceholderForeground, RelativeSource={RelativeSource Mode=TemplatedParent}, TargetNullValue={ThemeResource ComboBoxPlaceHolderForeground}}" 
+                                     HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="0,0,0,0" Padding="10,3,30,5" 
+                                     PlaceholderText="{TemplateBinding PlaceholderText}" Grid.Row="1" Style="{StaticResource ComboBoxTextBoxStyle}" 
+                                     Text="{Binding Text, Mode=TwoWay, RelativeSource={RelativeSource Mode=TemplatedParent}, UpdateSourceTrigger=PropertyChanged}" 
+                                     VerticalAlignment="{TemplateBinding VerticalContentAlignment}" 
+                                     Visibility="Collapsed" x:Load="False"/>
+                            <Border x:Name="DropDownOverlay" Background="Transparent" Grid.Column="1" Margin="0,2,2,2" Grid.Row="1" Visibility="Collapsed" x:Load="False"/>
+                            <FontIcon x:Name="DropDownGlyph" AutomationProperties.AccessibilityView="Raw" Grid.Column="1" FontFamily="{ThemeResource SymbolThemeFontFamily}" Foreground="{ThemeResource ComboBoxDropDownGlyphForeground}" FontSize="12" Glyph="&#xE0E5;" HorizontalAlignment="Right" IsHitTestVisible="False" Margin="0,10,10,10" Grid.Row="1" VerticalAlignment="Center"/>
+                            <ContentPresenter 
+                                x:Name="DescriptionPresenter" 
+                                Content="{TemplateBinding Description}" 
+                                Grid.ColumnSpan="2" 
+                                Grid.Column="0" 
+                                Grid.Row="1" 
+                                x:Load="False"
+                                AutomationProperties.AccessibilityView="Raw" 
+                                BorderThickness="{ThemeResource ComboBoxBorderThemeThickness}" 
+                                BorderBrush="{ThemeResource ComboBoxBorderBrush}"
+                                CornerRadius="20"/>
+                            <!--
+                            原来为Grid.Row="2"，修改为1，
+                            增加
+                                AutomationProperties.AccessibilityView="Raw" 
+                                BorderThickness="{TemplateBinding BorderThickness}" 
+                                BorderBrush="{TemplateBinding BorderBrush}" 
+                                CornerRadius="20"
+                            四句代码，修改为椭圆-->
+                            <!--改变下拉框背景色在Popup里实现-->
+                            <Popup x:Name="Popup">
+                                <Border x:Name="PopupBorder" 
+                                        BackgroundSizing="OuterBorderEdge" 
+                                        Background="LightYellow" 
+                                        BorderThickness="{ThemeResource ComboBoxDropdownBorderThickness}" 
+                                        BorderBrush="{ThemeResource ComboBoxDropDownBorderBrush}" 
+                                        HorizontalAlignment="Stretch" 
+                                        Margin="0,-1,0,-1" Padding="{ThemeResource ComboBoxDropdownBorderPadding}">
+                                    <ScrollViewer x:Name="ScrollViewer" 
+                                                  AutomationProperties.AccessibilityView="Raw" 
+                                                  BringIntoViewOnFocusChange="{TemplateBinding ScrollViewer.BringIntoViewOnFocusChange}" 
+                                                  Foreground="{ThemeResource ComboBoxDropDownForeground}" 
+                                                  HorizontalScrollBarVisibility="{TemplateBinding ScrollViewer.HorizontalScrollBarVisibility}" 
+                                                  HorizontalScrollMode="{TemplateBinding ScrollViewer.HorizontalScrollMode}" 
+                                                  IsDeferredScrollingEnabled="{TemplateBinding ScrollViewer.IsDeferredScrollingEnabled}" 
+                                                  IsHorizontalRailEnabled="{TemplateBinding ScrollViewer.IsHorizontalRailEnabled}" 
+                                                  IsVerticalRailEnabled="{TemplateBinding ScrollViewer.IsVerticalRailEnabled}" 
+                                                  MinWidth="{Binding TemplateSettings.DropDownContentMinWidth, RelativeSource={RelativeSource Mode=TemplatedParent}}" 
+                                                  VerticalSnapPointsType="OptionalSingle" 
+                                                  VerticalScrollMode="{TemplateBinding ScrollViewer.VerticalScrollMode}" 
+                                                  VerticalScrollBarVisibility="{TemplateBinding ScrollViewer.VerticalScrollBarVisibility}" 
+                                                  VerticalSnapPointsAlignment="Near" ZoomMode="Disabled">
+                                        <ItemsPresenter Margin="{ThemeResource ComboBoxDropdownContentMargin}"/>
+                                    </ScrollViewer>
+                                </Border>
+                            </Popup>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Page.Resources>
+    <Grid x:Name="gridall">
         <SplitView 
             x:Name="splitview" 
             DisplayMode="CompactInline" 
             OpenPaneLength="200">
             <SplitView.Pane>
-                <Grid>
+                <Grid x:Name="grid1">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="auto"/>
                         <RowDefinition Height="*"/>
@@ -47,35 +141,35 @@
                           ItemClick="Navlinkslist_ItemClick"
                           IsItemClickEnabled="True" >
                         <ListView.Items>
-                            <x:String>个性化</x:String>
+                            <x:String>计算器</x:String>
                             <x:String>地图</x:String>
-                            <x:String>联系我</x:String>
                             <x:String>使用帮助</x:String>
                             <x:String>Settings</x:String>
                         </ListView.Items>
                     </ListView>
                 </Grid>
             </SplitView.Pane>
-<!--            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="auto"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="auto"/>
-                    <RowDefinition Height="auto"/>
-                    <RowDefinition Height="auto"/>
-                </Grid.RowDefinitions>
-                <Grid Grid.Row="0">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="auto"/>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="auto"/>
-                    </Grid.ColumnDefinitions>
-                </Grid>
-            </Grid>
-            -->
             <SplitView.Content>
-                <Frame x:Name="childframe1" >
-                </Frame>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="16*" />
+                    </Grid.RowDefinitions>
+                    <ComboBox Style="{StaticResource ComboBoxStyle2}"
+                        x:Name="select_background" 
+                        VerticalAlignment="Stretch" 
+                        HorizontalAlignment="Right" 
+                        Margin="0,0,30,0"
+                        Width="300" 
+                        DropDownClosed="Select_background_DropDownClosed">
+                        <ComboBoxItem Content="whilt" Margin="0,0,0,0" IsSelected="True"/>
+                        <ComboBoxItem Content="gray" Margin="0,0,0,0" />
+                        <ComboBoxItem Content="blue" Margin="0,0,0,0" />
+                        <ComboBoxItem Content="green" Margin="0,0,0,0" />
+                    </ComboBox>
+                    <Frame x:Name="childframe1" Grid.Row="1">
+                    </Frame>
+                </Grid>
             </SplitView.Content>
         </SplitView>
     </Grid>

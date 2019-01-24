@@ -23,9 +23,14 @@ namespace humburgerApp
     /// </summary>
     public sealed partial class MainPage : Page
     {
+        ObservableCollection<FontFamily> fonts = new ObservableCollection<FontFamily>();
         public MainPage()
         {
             this.InitializeComponent();
+/*            fonts.Add( new FontFamily("whilt"));
+            fonts.Add( new FontFamily("black"));
+            fonts.Add( new FontFamily("blue"));
+            fonts.Add( new FontFamily("green"));*/
         }
         private void Btn_close_splitview_Click(object sender, RoutedEventArgs e)
         {
@@ -35,13 +40,10 @@ namespace humburgerApp
         {
             switch(e.ClickedItem.ToString())
             {
-                case "个性化":
+                case "计算器":
                     childframe1.Navigate(typeof(psesonalSetting));
                     break;
                 case "地图":
-                    childframe1.Navigate(typeof(psesonalSetting));
-                    break;
-                case "联系我":
                     childframe1.Navigate(typeof(Map));
                     break;
                 case "使用帮助":
@@ -51,6 +53,30 @@ namespace humburgerApp
                     childframe1.Navigate(typeof(Settings));
                     break;
                 default:
+                    break;
+            }
+        }
+
+        private void Select_background_DropDownClosed(object sender, object e)
+        {
+            string colour = select_background.SelectionBoxItem.ToString();
+            switch (colour)
+            {
+                case "whilt":
+                    gridall.Background = new SolidColorBrush(Windows.UI.Colors.White);
+                    grid1.Background = new SolidColorBrush(Windows.UI.Colors.WhiteSmoke);
+                    break;
+                case "gray":
+                    gridall.Background = new SolidColorBrush(Windows.UI.Colors.LightGray);
+                    grid1.Background = new SolidColorBrush(Windows.UI.Colors.GreenYellow);
+                    break;
+                case "blue":
+                    gridall.Background = new SolidColorBrush(Windows.UI.Colors.AliceBlue);
+                    grid1.Background = new SolidColorBrush(Windows.UI.Colors.DeepSkyBlue);
+                    break;
+                case "green":
+                    gridall.Background = new SolidColorBrush(Windows.UI.Colors.LightSeaGreen);
+                    grid1.Background = new SolidColorBrush(Windows.UI.Colors.LightGreen);
                     break;
             }
         }
