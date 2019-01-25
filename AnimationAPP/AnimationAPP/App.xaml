@@ -1,0 +1,11 @@
+﻿<Application
+    x:Class="AnimationAPP.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:AnimationAPP">
+    <Application.Resources>
+        <Style TargetType="Rectangle" x:Key="test">
+            <Setter Property="Fill" Value="Gray"/>
+        </Style>
+    </Application.Resources>
+</Application>
