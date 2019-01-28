@@ -10,23 +10,27 @@
 
     <StackPanel x:Name="LayoutRoot" >
         <StackPanel.Resources>
-            <Storyboard  x:Name="PointerReleased">
+            <Storyboard  x:Name="PointerReleased1">
                 <RepositionThemeAnimation
                     Storyboard.TargetName="myrect"
                     FromHorizontalOffset="-100"
                     FromVerticalOffset="-100"/>
             </Storyboard>
+            <Storyboard  x:Name="PointerReleased2">
+                <RepositionThemeAnimation
+                    Storyboard.TargetName="myrect"
+                    FromHorizontalOffset="-200"
+                    FromVerticalOffset="-100"/>
+            </Storyboard>
         </StackPanel.Resources>
-        <Rectangle x:Name="myrect"
-                   HorizontalAlignment="Left"
-                   Width="200" Height="200" Fill="Black"
-                   PointerReleased="Myrect_PointerReleased">
-
-        </Rectangle>
-        <Path HorizontalAlignment="Stretch"
-          VerticalAlignment="Stretch"
-          Stroke="Yellow"
-          StrokeThickness="6"
-          Data="M10,5 Q300,20 50,500"/>
+        <Polygon Points="15,200 68,70 110,200 0,125 135,125"
+                 Margin="0,0,0,0"
+                 Fill="Red"
+                 x:Name="myrect"
+                 Stroke="Blue"
+                 StrokeThickness="4"
+                 Stretch="Fill"
+                 Height="100" Width="100"
+                 PointerPressed="Myrect_PointerReleased"/>
     </StackPanel>
 </Page>

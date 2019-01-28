@@ -23,6 +23,7 @@ namespace StarApp_1._25
     /// </summary>
     public sealed partial class MainPage : Page
     {
+        int i = 0;
         public MainPage()
         {
             this.InitializeComponent();
@@ -30,10 +31,22 @@ namespace StarApp_1._25
         private void Myrect_PointerReleased(object sender, PointerRoutedEventArgs e)
         {
             Random rand = new Random();
-            myrect.Margin = new Thickness(400, 100, 0, 0);
-            myrect.Fill = new SolidColorBrush(Color.FromArgb(255,
+            
+            if(i == 0) { 
+                myrect.Margin = new Thickness(400, 100, 0, 0);
+                myrect.Fill = new SolidColorBrush(Color.FromArgb(255,
                     (byte)rand.Next(0, 255), (byte)rand.Next(0, 255), (byte)rand.Next(0, 255)));
-            PointerReleased.Begin();
+                PointerReleased1.Begin();
+                i = 1;
+            }
+            if(i == 1)
+            {
+                myrect.Margin = new Thickness(100, 600, 0, 0);
+                myrect.Fill = new SolidColorBrush(Color.FromArgb(255,
+                    (byte)rand.Next(0, 255), (byte)rand.Next(0, 255), (byte)rand.Next(0, 255)));
+                PointerReleased2.Begin();
+            }
+
         }
     }
 }
