@@ -46,6 +46,7 @@
                 </Setter.Value>
             </Setter>
         </Style>
+        <Storyboard x:Name="Storyboard1"/>
     </Page.Resources>
     <StackPanel>
         <Image x:Name="DestinationImage"
