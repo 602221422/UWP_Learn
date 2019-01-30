@@ -16,7 +16,7 @@ using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using DataAccessLibrary;
 
-namespace SqliteApp1
+namespace PictureAPP_1._30
 {
     /// <summary>
     /// 提供特定于应用程序的行为，以补充默认的应用程序类。
@@ -31,7 +31,6 @@ namespace SqliteApp1
         {
             this.InitializeComponent();
             this.Suspending += OnSuspending;
-
             DataAccess.InitializeDatabase();
         }
 
@@ -99,6 +98,5 @@ namespace SqliteApp1
             //TODO: 保存应用程序状态并停止任何后台活动
             deferral.Complete();
         }
-
     }
 }

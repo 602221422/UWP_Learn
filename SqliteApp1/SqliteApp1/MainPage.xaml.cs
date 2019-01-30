@@ -12,8 +12,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
-
-// https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x804 上介绍了“空白页”项模板
+using DataAccessLibrary;
 
 namespace SqliteApp1
 {
@@ -25,6 +24,12 @@ namespace SqliteApp1
         public MainPage()
         {
             this.InitializeComponent();
+        }
+        private void AddData(object sender, RoutedEventArgs e)
+        {
+            DataAccess.AddData(Input_Box.Text);
+
+            Output.ItemsSource = DataAccess.GetData();
         }
     }
 }
