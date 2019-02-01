@@ -25,6 +25,8 @@ namespace bindingApp2
         public MainPage()
         {
             this.InitializeComponent();
+            this.ViewModel = new LeagueList();
         }
+        public LeagueList ViewModel { get; set; }
     }
 }

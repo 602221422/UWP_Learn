@@ -7,8 +7,59 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-
-    <Grid>
-
-    </Grid>
+    <Page.Resources>
+        <CollectionViewSource 
+            x:Name="Leagues" 
+            Source="{x:Bind ViewModel}"/>
+        <CollectionViewSource 
+            x:Name="Divisions"
+            Source="{Binding Divisions,Source={StaticResource Leagues}}"/>
+        <CollectionViewSource 
+            x:Name="Teams"
+            Source="{Binding Teams,Source={StaticResource Divisions}}"/>
+        <Style TargetType="TextBlock" >
+            <Setter Property="FontSize" Value="15"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+        </Style>
+        <Style TargetType="ListBox" >
+            <Setter Property="FontSize" Value="15"/>
+        </Style>
+        <Style TargetType="ContentControl" >
+            <Setter Property="FontSize" Value="15"/>
+        </Style>
+    </Page.Resources>
+    <StackPanel Orientation="Horizontal">
+        <StackPanel Margin="5">
+            <TextBlock Text="All Leagues"/>
+            <ListBox ItemsSource="{Binding Source={StaticResource Leagues}}"
+                     DisplayMemberPath="Name"/>
+        </StackPanel>
+        <StackPanel Margin="5">
+            <TextBlock Text="{Binding Name,Source={StaticResource Leagues}}"/>
+            <ListBox ItemsSource="{Binding Source={StaticResource Divisions}}"
+                     DisplayMemberPath="Name"/>
+        </StackPanel>
+        <StackPanel Margin="5">
+            <TextBlock Text="{Binding Name,Source={StaticResource Divisions}}"/>
+            <ListBox ItemsSource="{Binding Source={StaticResource Teams}}"
+                     DisplayMemberPath="Name"/>
+        </StackPanel>
+        <ContentControl Content="{Binding Source={StaticResource Teams}}">
+            <ContentControl.ContentTemplate>
+                <DataTemplate>
+                    <StackPanel Margin="5">
+                        <TextBlock Text="{Binding Name}" FontSize="15" FontWeight="Bold"/>
+                        <StackPanel Orientation="Horizontal" Margin="10,10">
+                            <TextBlock Text="Wins" Margin="0,0,5,0"/>
+                            <TextBlock Text="{Binding Wins}"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Margin="10,10">
+                            <TextBlock Text="Losses" Margin="0,0,5,0"/>
+                            <TextBlock Text="{Binding Losses}"/>
+                        </StackPanel>
+                    </StackPanel>
+                </DataTemplate>
+            </ContentControl.ContentTemplate>
+        </ContentControl>
+    </StackPanel>
 </Page>
