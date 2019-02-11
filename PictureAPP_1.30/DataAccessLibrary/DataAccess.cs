@@ -37,7 +37,7 @@ namespace DataAccessLibrary
         {
             List<String> entries = new List<string>();
             using (SqliteConnection db =
-                new SqliteConnection("Filename=sqliteSample.db"))
+                new SqliteConnection("Filename=Picture.db"))
             {
                 db.Open();
                 SqliteCommand selectCommand = new SqliteCommand

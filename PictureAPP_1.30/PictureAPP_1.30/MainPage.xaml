@@ -7,7 +7,6 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-
     <StackPanel>
         <ListView x:Name="listview" Width="600">
             <ListView.ItemsPanel>
@@ -43,7 +42,6 @@
                 <Image x:Name="img9" Width="200" Height="200"/>
             </ListViewItem>
         </ListView>
-        <TextBlock x:Name="outtext" Text="aaaaa"/>
         <StackPanel>
             <ListView Name="Output">
                 <ListView.ItemTemplate>

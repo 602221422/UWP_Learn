@@ -19,21 +19,17 @@ using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Navigation;
 using DataAccessLibrary;
 
-// https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x804 上介绍了“空白页”项模板
-
 namespace PictureAPP_1._30
 {
-    /// <summary>
-    /// 可用于自身或导航至 Frame 内部的空白页。
-    /// </summary>
     public sealed partial class MainPage : Page
     {
         public MainPage()
         {
             this.InitializeComponent();
             Selectpicture();
+            AddData();
         }
-        async public void AddData(object sender, RoutedEventArgs e)
+        async public void AddData()
         {
             StorageFolder pictureFolder = KnownFolders.PicturesLibrary;
             StringBuilder outputText = new StringBuilder();
@@ -42,10 +38,9 @@ namespace PictureAPP_1._30
             foreach (StorageFile file in fileList)
             {
                 DataAccess.AddData(file.Path);
-                outtext.Text = DataAccess.GetData();
             }
+            Output.ItemsSource = DataAccess.GetData();
         }
-
         async public void Selectpicture()
         {
             ListViewItem item = new ListViewItem();
@@ -91,5 +86,4 @@ namespace PictureAPP_1._30
             img9.Source = bi9;
         }
     }
-
 }
