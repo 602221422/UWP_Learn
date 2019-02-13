@@ -14,7 +14,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
-
+using DataAccessLibrary;
 namespace PictureByBindingAPP_2._11
 {
     /// <summary>
@@ -30,6 +30,7 @@ namespace PictureByBindingAPP_2._11
         {
             this.InitializeComponent();
             this.Suspending += OnSuspending;
+            DataAccess.InitialzeDatabase();
         }
 
         /// <summary>
