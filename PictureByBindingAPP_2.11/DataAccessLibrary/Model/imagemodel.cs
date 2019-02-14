@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Windows.UI.Xaml.Media.Imaging;
-using Windows.Storage;
 using DataAccessLibrary;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
+
 namespace PictureByBindingAPP_2._11_Model
 {
     public class Imagemodel
@@ -17,11 +18,10 @@ namespace PictureByBindingAPP_2._11_Model
     }
     public class ImageManager
     {
-        public static List<Imagemodel> getimages()
+        public static ObservableCollection<Imagemodel> getimages()
         {
-            var images = new List<Imagemodel>
+            var images = new ObservableCollection <Imagemodel>
             {
-                
                 new Imagemodel { imageId = 1, Title = "AAA1", Author = "aaa", CoverImage = "http://pic1.win4000.com/wallpaper/3/53b7b2af00593.jpg" },
                 new Imagemodel { imageId = 2, Title = "BBB1", Author = "bbb", CoverImage = "http://pic34.photophoto.cn/20150117/0005018381613004_b.jpg" },
                 new Imagemodel { imageId = 3, Title = "CCC1", Author = "ccc", CoverImage = "http://gss0.baidu.com/-vo3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/0ff41bd5ad6eddc4140b13fc39dbb6fd536633cc.jpg" },

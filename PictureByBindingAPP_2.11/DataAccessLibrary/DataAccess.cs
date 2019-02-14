@@ -1,6 +1,9 @@
 ﻿using System;
 using Microsoft.Data.Sqlite;
 using System.Collections.Generic;
+using PictureByBindingAPP_2._11_Model;
+using System.Collections.ObjectModel;
+
 namespace DataAccessLibrary
 {
     public class DataAccess
@@ -48,6 +51,49 @@ namespace DataAccessLibrary
                 db.Close();
             }
             return imageurl;
+        }
+        public static Imagemodel RandomShowOne()
+        {
+            using (SqliteConnection db=new SqliteConnection("Filename=images1.db"))
+            {
+                Imagemodel imageurl = new Imagemodel(); ;
+                db.Open();
+                SqliteCommand sqliteCommand = new SqliteCommand();
+                sqliteCommand.Connection = db;
+                sqliteCommand.CommandText = "Select * from Image order by random() limit 1";
+                SqliteDataReader reader = sqliteCommand.ExecuteReader();
+                while (reader.Read())
+                {
+                    imageurl.imageId = reader.GetInt16(0);
+                    imageurl.CoverImage = reader.GetString(1);
+                    imageurl.Title = reader.GetString(2);
+                    imageurl.Author = reader.GetString(3);
+                }
+                return imageurl;
+            }
+        }
+        public static List<Imagemodel> ShowAll()
+        {
+            Imagemodel imagemodel = new Imagemodel();
+            List<Imagemodel> imagemodels  = new List<Imagemodel>();
+            using (SqliteConnection db=new SqliteConnection("Filename=images1.db"))
+            {
+                db.Open();
+                SqliteCommand sqliteCommand = new SqliteCommand();
+                sqliteCommand.Connection = db;
+                sqliteCommand.CommandText = "select * from Image";
+                SqliteDataReader reader = sqliteCommand.ExecuteReader();
+                while (reader.Read())
+                {
+                    imagemodel.imageId = reader.GetInt16(0);
+                    imagemodel.CoverImage = reader.GetString(1);
+                    imagemodel.Title = reader.GetString(2);
+                    imagemodel.Author = reader.GetString(3);
+                    imagemodels.Add(imagemodel);
+                }
+                db.Close();
+            }
+            return imagemodels;
         }
     }
 }

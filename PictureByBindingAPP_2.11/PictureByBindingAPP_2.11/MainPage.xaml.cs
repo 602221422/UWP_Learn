@@ -19,16 +19,15 @@ using PictureByBindingAPP_2._11_Model;
 using DataAccessLibrary;
 using Windows.Networking.BackgroundTransfer;
 using System.Timers;
-using System.Threading;
+using Windows.UI.Core;
+using System.Collections.ObjectModel;
 
 namespace PictureByBindingAPP_2._11
 {
-    /// <summary>
-    /// 可用于自身或导航至 Frame 内部的空白页。
-    /// </summary>
     public sealed partial class MainPage : Page
     {
-        private List<Imagemodel> images;
+        private ObservableCollection<Imagemodel> images;
+        BackgroundDownloader backgroundDownload = new BackgroundDownloader();
         public MainPage()
         {
             this.InitializeComponent();
@@ -36,13 +35,9 @@ namespace PictureByBindingAPP_2._11
             foreach (Imagemodel image in images)
             {
                 DataAccess.AddData(image.imageId,image.CoverImage, image.Title, image.Author);
+                Backgrounddownload(image);
             }
-            Backgrounddownload();
-            System.Timers.Timer timer = new System.Timers.Timer();
-            timer.Interval = 1000;
-            timer.Elapsed += new ElapsedEventHandler(PeriodicTaskHandler);
-            timer.Start();
-
+            DispatcherTimerSetup();
         }
         private void Picturegrid_ItemClick(object sender, ItemClickEventArgs e)
         {
@@ -55,21 +50,35 @@ namespace PictureByBindingAPP_2._11
             var folder = ApplicationData.Current.LocalFolder;
             show.Text = folder.Path;
         }
-        async public void Backgrounddownload()
-        {
-            BackgroundDownloader backgroundDownload = new BackgroundDownloader();
+        async public void Backgrounddownload(Imagemodel imagemodel)
+        {   
             StorageFolder folder = await KnownFolders.PicturesLibrary.CreateFolderAsync("ONE", CreationCollisionOption.OpenIfExists);
-            foreach (Imagemodel image in images)
-            {
-                StorageFile newFile = await folder.CreateFileAsync(image.Title+".jpg", CreationCollisionOption.OpenIfExists);
-                Uri uri = new Uri(image.CoverImage);
+            StorageFile newFile = await folder.CreateFileAsync(imagemodel.Title+".jpg", CreationCollisionOption.OpenIfExists);
+                Uri uri = new Uri(imagemodel.CoverImage);
                 DownloadOperation download = backgroundDownload.CreateDownload(uri, newFile);
                 await download.StartAsync();
-            }
         }
-        static void PeriodicTaskHandler(object sender, ElapsedEventArgs e)
+        public void DispatcherTimerSetup()
         {
-            
+            Timer timer = new Timer(5000);
+            timer.Elapsed += new ElapsedEventHandler(Refersh);
+            timer.AutoReset = true;
+            timer.Enabled = true;
+            GC.KeepAlive(timer);
+        }
+        async public void Refersh(object sender, ElapsedEventArgs e)
+        {
+            await Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
+            {
+                images.Clear();
+                for(int i = 0; i < 6; i++)
+                {
+                images.Add(DataAccess.RandomShowOne());
+                }
+                //images = DataAccess.ShowAll();
+                //picturegrid.ItemsSource = DataAccess.ShowAll();
+                //images.Add(new Imagemodel { imageId = 7, Title = "zxc", Author = "qqq", CoverImage = "http://pic34.photophoto.cn/20150117/0005018381613004_b.jpg" });
+            }); 
         }
     }
 }

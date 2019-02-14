@@ -1,0 +1,21 @@
+﻿<Page
+    x:Class="BindingTwowayApp_2_14.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:BindingTwowayApp_2_14.Model"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Page.Resources>
+        <local:User x:Key="user"></local:User>
+    </Page.Resources>
+    <Grid>
+        <StackPanel DataContext="{StaticResource user}">
+            <TextBlock x:Name="tbID" Text="{Binding Path=ID}"></TextBlock>
+            <TextBlock x:Name="tbName" Text="{Binding Path=Name}"></TextBlock >
+            <TextBlock x:Name="tbGender" Text="{Binding Path=Gender}"></TextBlock>
+            <Button x:Name="change" Content="change" Click="Change_Click"/>
+        </StackPanel>
+    </Grid>
+</Page>
