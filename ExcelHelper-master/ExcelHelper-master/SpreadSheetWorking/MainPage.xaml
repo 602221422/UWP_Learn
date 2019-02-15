@@ -1,0 +1,32 @@
+﻿<Page
+    x:Class="SpreadSheetWorking.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:SpreadSheetWorking"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:vm="using:SpreadSheetWorking.ViewModel"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Page.DataContext>
+        <vm:MainPageViewModel/>
+    </Page.DataContext>
+    <StackPanel Orientation="Horizontal">
+        <Button Click="Button_Click" Width="300" Content="test" Height="200"/>
+        <ListView x:Name="show" ItemsSource="{Binding Members}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <TextBlock Text="{Binding UserName}"/>
+                        <TextBlock Text="{Binding Alias}"/>
+                        <TextBlock Text="{Binding WsAlias}"/>
+                        <TextBlock Text="{Binding Technology}"/>
+                        <TextBlock Text="{Binding Group}"/>
+                        <TextBlock Text="{Binding VacationHour}"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackPanel>
+    
+</Page>
