@@ -1,0 +1,28 @@
+﻿<Page
+    x:Class="tilesApp.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:tilesApp"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Page.Resources>
+        <Flyout x:Name="FlyoutPinTileTip">
+            <StackPanel>
+                <TextBlock Text="Try out our awesome Live Tile"/>
+                <Button x:Name="ButtonPinTile"
+                        Content="Pin To Start"
+                        Click="ButtonPinTile_Click"/>
+            </StackPanel>
+        </Flyout>
+    </Page.Resources>
+    <StackPanel>
+        <Button x:Name="ButtonSendToast"
+                Content="Click"
+                Click="ButtonSendToast_Click"/>
+        <Button x:Name="ButtonShowTip"
+                Content="ClickPinToStart"
+                Click="ButtonShowTip_Click"/>
+    </StackPanel>
+</Page>
