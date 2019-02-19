@@ -4,6 +4,7 @@ using SpreadSheetWorking;
 using System.IO;
 using System;
 using System.Diagnostics;
+using Windows.UI.Xaml;
 
 namespace SpreadSheetWorking.ViewModel
 {
@@ -23,12 +24,30 @@ namespace SpreadSheetWorking.ViewModel
         {
             Readfile();
         }
+
+        /*private ObservableCollection<MemberInfo> GetMember()
+        {
+            return new ObservableCollection<MemberInfo>()
+            {
+                new MemberInfo()
+                {
+                    UserName="saaa",
+                    Alias="aaa",
+                    WsAlias="ddd",
+                    Technology="ooo",
+                    Group="ssss",
+                    VacationHour=6,
+                },
+            };
+        }*/
+
         async public void Readfile()
         {
             Stream finalstream = await SpreadsheetHelper.filepathhelper();
             try
             {
-                SpreadsheetHelper.ReadDataFromExcel(finalstream, "Sheet1", "A2", "F29", members);
+                members=SpreadsheetHelper.ReadDataFromExcel(finalstream, "Sheet1", "A2", "F29");
+                this.Members = members;
             }
             catch (Exception ex)
             {

@@ -71,21 +71,6 @@ namespace SpreadSheetWorking.Model
                 RaisePropertyChanged("VacationHour");
             }
         }
-        /*public static ObservableCollection<MemberInfo> GetMemberInfos()
-        {
-            return new ObservableCollection<MemberInfo>()
-            {
-                new MemberInfo()
-                {
-                    UserName="saaa",
-                    Alias="aaa",
-                    wsalias="ddd",
-                    Technology="ooo",
-                    Group="ssss",
-                    VacationHour=6,
-                },
-            };
-        }*/
 
         public void emptymem()
         {

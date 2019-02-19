@@ -273,8 +273,9 @@ namespace SpreadSheetWorking
         }
 
         //Responseale for loading data from a excel. Row 1 should be the Column name and the data should go from Row 2 
-        public static void ReadDataFromExcel(Stream stream, string worksheetName, string firstCellName, string lastCellName,ObservableCollection<MemberInfo> membercollection)
+        public static ObservableCollection<MemberInfo> ReadDataFromExcel(Stream stream, string worksheetName, string firstCellName, string lastCellName)
         {
+            ObservableCollection<MemberInfo> membercollection=new ObservableCollection<MemberInfo>();
             MemberInfo member = new MemberInfo();
             using (SpreadsheetDocument document = SpreadsheetDocument.Open(stream, false))
             {
@@ -340,6 +341,7 @@ namespace SpreadSheetWorking
                 }
              
             }
+            return membercollection;
         }
     }
 

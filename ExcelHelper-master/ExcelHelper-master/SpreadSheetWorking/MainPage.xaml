@@ -11,9 +11,23 @@
     <Page.DataContext>
         <vm:MainPageViewModel/>
     </Page.DataContext>
+    <Page.Resources>
+        <Flyout x:Name="FlyoutPinTileTip">
+            <StackPanel>
+                <TextBlock Text="Try out our awesome Live Tile"/>
+                <Button x:Name="ButtonPinTile"
+                        Content="Pin To Start"
+                        Click="ButtonPinTile_Click"/>
+            </StackPanel>
+        </Flyout>
+    </Page.Resources>
     <StackPanel Orientation="Horizontal">
-        <Button Click="Button_Click" Width="300" Content="test" Height="200"/>
-        <ListView x:Name="show" ItemsSource="{Binding Members}">
+        <Button Width="300" x:Name="ShowTip" Content="test" Height="200" Click="Button_Click"/>
+        <ListView 
+            x:Name="show" 
+            ItemsSource="{Binding Members}" 
+            Width="200"
+            ItemClick="Show_ItemClick">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <StackPanel>
