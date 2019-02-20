@@ -1,0 +1,13 @@
+﻿<Application
+    x:Class="right_clickingApp_2_10.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:right_clickingApp_2_10">
+    <Application.Resources>
+    <ResourceDictionary>
+        <ResourceDictionary.MergedDictionaries>
+            <ResourceDictionary Source="ms-appx:///Microsoft.Toolkit.Uwp.UI.Controls.DataGrid/DataGrid/DataGrid.xaml"/>
+        </ResourceDictionary.MergedDictionaries>
+    </ResourceDictionary>
+</Application.Resources>
+</Application>

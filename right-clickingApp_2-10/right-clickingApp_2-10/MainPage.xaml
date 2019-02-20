@@ -1,0 +1,66 @@
+﻿<Page
+    x:Class="right_clickingApp_2_10.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:right_clickingApp_2_10.Model"
+    xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:localprimitives="using:Microsoft.Toolkit.Uwp.UI.Controls.Primitives"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Page.Resources>
+        <Style TargetType="controls:DataGridRow" >
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="controls:DataGridRow">
+                        <localprimitives:DataGridFrozenGrid x:Name="RowRoot" >
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Rectangle x:Name="BackgroundRectangle" Grid.ColumnSpan="2" Fill="{ThemeResource SystemControlTransparentBrush}"/>
+                            <Rectangle x:Name="InvalidVisualElement" Grid.ColumnSpan="2" Opacity="0" Fill="{ThemeResource DataGridRowInvalidBrush}"/>
+
+                            <localprimitives:DataGridRowHeader x:Name="RowHeader" Grid.RowSpan="3" localprimitives:DataGridFrozenGrid.IsFrozen="True"/>
+                            <localprimitives:DataGridCellsPresenter x:Name="CellsPresenter" Grid.Column="1"
+                        localprimitives:DataGridFrozenGrid.IsFrozen="True" MinHeight="32"
+                        AutomationProperties.AccessibilityView="Raw">
+                                <localprimitives:DataGridCellsPresenter.ContextFlyout>
+                                    <MenuFlyout>
+                                        <MenuFlyoutItem Text="Copy" Icon="Copy" Click="MenuFlyoutItem_Copy" />
+                                        <MenuFlyoutSeparator />
+                                        <MenuFlyoutItem Text="Delete" Icon="Delete" Click="MenuFlyoutItem_Delete" />
+                                    </MenuFlyout>
+                                </localprimitives:DataGridCellsPresenter.ContextFlyout>
+                            </localprimitives:DataGridCellsPresenter>
+                            <localprimitives:DataGridDetailsPresenter x:Name="DetailsPresenter" Grid.Row="1" Grid.Column="1"
+                        Background="{ThemeResource DataGridDetailsPresenterBackgroundBrush}"
+                        AutomationProperties.AccessibilityView="Raw"/>
+                            <Rectangle x:Name="BottomGridLine" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Stretch" Height="1"/>
+                        </localprimitives:DataGridFrozenGrid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Page.Resources>
+    <StackPanel>
+        <controls:DataGrid x:Name="DataGridshow"
+                           AutoGenerateColumns="False" 
+                           d:DataContext="{d:DesignInstance local:SampleOrder}"
+                           SelectionMode="Single">
+            <controls:DataGrid.Columns>
+                <controls:DataGridTextColumn Header="名字" Binding="{Binding Name}"/>
+                <controls:DataGridTextColumn Header="网站" Binding="{Binding Url}"/>
+                <controls:DataGridTextColumn Header="OrderId" Binding="{Binding OrderId}"/>
+            </controls:DataGrid.Columns>
+        </controls:DataGrid>
+
+    </StackPanel>
+</Page>
