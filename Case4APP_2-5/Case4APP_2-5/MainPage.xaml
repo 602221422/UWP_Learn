@@ -1,0 +1,43 @@
+﻿<Page
+    x:Class="Case4APP_2_5.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Case4APP_2_5"
+    xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+    xmlns:localprimitives="using:Microsoft.Toolkit.Uwp.UI.Controls.Primitives">
+    <Grid>
+        <Grid.Resources>
+            <DataTemplate x:Key="DataTemplate">
+                <StackPanel>
+                    <TextBlock  Text="{Binding Id}"
+                                HorizontalAlignment="Center" 
+                                VerticalAlignment="Center" 
+                                Foreground="LawnGreen"
+                                TextAlignment="Center"/>
+                    <ProgressBar x:Name="progressBar1" Value="0" Maximum="200" Margin="0,12"/>
+                    <RepeatButton Content="Press and hold" Click="RepeatButton_Click"/>
+                </StackPanel>
+            </DataTemplate>
+            <DataTemplate x:Key="EditingDateTemplate">
+                <TextBox Text="{Binding Id}"
+                         HorizontalAlignment="Center" 
+                         VerticalAlignment="Center" 
+                         TextAlignment="Center"/>
+            </DataTemplate>
+        </Grid.Resources>
+        <controls:DataGrid  x:Name="datagrid" 
+                            ItemsSource="{Binding}"
+                            AutoGenerateColumns="False">
+            <controls:DataGrid.Columns>
+                <controls:DataGridTemplateColumn Header="OrderId" 
+                                                 CellTemplate="{StaticResource DataTemplate}"
+                                                 CellEditingTemplate="{StaticResource EditingDateTemplate}">
+                </controls:DataGridTemplateColumn>
+            </controls:DataGrid.Columns>
+        </controls:DataGrid>
+    </Grid>
+</Page>

@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Windows.UI.Xaml.Data;
 
-namespace Review_allAPP.Model
+namespace ModiaPlayerApp_3._7
 {
     public class ScenarioModel
     {
@@ -16,11 +16,30 @@ namespace Review_allAPP.Model
             List<ScenarioModel> scenarios = new List<ScenarioModel>()
             {
                 new ScenarioModel()
-                {   
-                    Title="Share Text",
-                    ClassType=typeof(ShareText)
+                {
+                    Title="video",
+                    ClassType=typeof(MainPage)
                 },
-                                new ScenarioModel()
+                new ScenarioModel()
+                {
+                    Title="ModiaPlayer2",
+                    ClassType=typeof(Modiaplayer2)
+                },
+                new ScenarioModel()
+                {
+                    Title="BreakMedia",
+                    ClassType=typeof(breakschedule)
+                },
+                new ScenarioModel()
+                {
+                    Title="CopyAndPaste",
+                    ClassType=typeof(CopyAndPaste)
+                },
+                new ScenarioModel()
+                {
+                    Title="StreamSocketAndListenerPage",
+                    ClassType=typeof(StreamSocketAndListenerPage)
+                },
             };
             return scenarios;
         }
@@ -30,7 +49,7 @@ namespace Review_allAPP.Model
         public object Convert(object value, Type targetType, object parameter, string language)
         {
             ScenarioModel s = value as ScenarioModel;
-            return (MainPage.Current.Scenarios.IndexOf(s) + 1) + ")" + s.Title;
+            return (Main.Current.Scenarios.IndexOf(s) + 1) + ")" + s.Title;
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, string language)

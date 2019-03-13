@@ -28,7 +28,7 @@ namespace CameraApp
         public MainPage()
         {
             this.InitializeComponent();
-            camera();
+            
             Application.Current.Suspending += Application_Suspending;
         }
         async void camera()
@@ -44,11 +44,10 @@ namespace CameraApp
                 // User cancelled photo capture
                 return;
             }
-            StorageFolder destinationFolder = await ApplicationData.Current.LocalFolder.
-                CreateFolderAsync("ProfilePhotoFolder",CreationCollisionOption.OpenIfExists);
+            StorageFolder destinationFolder = await KnownFolders.PicturesLibrary.CreateFolderAsync("ProfilePhotoFolder",CreationCollisionOption.OpenIfExists);
 
             await photo.CopyAsync(destinationFolder, "ProfilePhoto.jpg", NameCollisionOption.ReplaceExisting);
-            await photo.DeleteAsync();
+            //await photo.DeleteAsync();
             IRandomAccessStream stream = await photo.OpenAsync(FileAccessMode.Read);
             BitmapDecoder decoder = await BitmapDecoder.CreateAsync(stream);
             SoftwareBitmap softwareBitmap = await decoder.GetSoftwareBitmapAsync();
@@ -141,6 +140,11 @@ namespace CameraApp
                 await CleanupCameraAsync();
                 deferral.Complete();
             }
+        }
+
+        private void Show_Click(object sender, RoutedEventArgs e)
+        {
+            camera();
         }
     }
 }

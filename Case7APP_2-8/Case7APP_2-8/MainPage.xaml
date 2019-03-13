@@ -1,0 +1,62 @@
+﻿<Page
+    x:Class="Case7APP_2_8.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Case7APP_2_8"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.ThemeDictionaries>
+                <ResourceDictionary x:Key="Default">
+                    <AcrylicBrush x:Key="MyAcrylicBrush"
+            BackgroundSource="HostBackdrop"
+            TintColor="#FF3DB2A7"
+            TintOpacity="0.8"
+            FallbackColor="#FF0D0963"/>
+                </ResourceDictionary>
+
+                <ResourceDictionary x:Key="HighContrast">
+                    <SolidColorBrush x:Key="MyAcrylicBrush"
+            Color="{ThemeResource SystemColorWindowColor}"/>
+                </ResourceDictionary>
+
+                <ResourceDictionary x:Key="Light">
+                    <AcrylicBrush x:Key="MyAcrylicBrush"
+            BackgroundSource="HostBackdrop"
+            TintColor="#FF34A429"
+            TintOpacity="0.8"
+            FallbackColor="#FF83CB1C"/>
+                </ResourceDictionary>
+            </ResourceDictionary.ThemeDictionaries>
+        </ResourceDictionary>
+    </Page.Resources>
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <Grid x:Name="AppTitleBar" Background="{ThemeResource MyAcrylicBrush}">
+            <!-- Width of the padding columns is set in LayoutMetricsChanged handler. -->
+            <!-- Using padding columns instead of Margin ensures that the background
+                 paints the area under the caption control buttons (for transparent buttons). -->
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition x:Name="LeftPaddingColumn" Width="0"/>
+                <ColumnDefinition/>
+                <ColumnDefinition x:Name="RightPaddingColumn" Width="0"/>
+            </Grid.ColumnDefinitions>
+            <Image Source="Assets/Square44x44Logo.png" 
+                   Grid.Column="1" HorizontalAlignment="Left" 
+                   Width="20" Height="20" Margin="12,0"/>
+            <TextBlock Text="Custom Title Bar" 
+                       Grid.Column="1" 
+                       Style="{StaticResource CaptionTextBlockStyle}" 
+                       Margin="44,8,0,0"/>
+        </Grid>
+        <StackPanel Grid.Row="1">
+            <NavigationView x:Name="navigationview"/>
+        </StackPanel>
+    </Grid>
+</Page>
