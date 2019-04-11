@@ -31,7 +31,8 @@ namespace ModiaPlayerApp_3._7
         }
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            
+            this.StartServer();
+            this.StartClient();
         }
         private async void StartServer()
         {

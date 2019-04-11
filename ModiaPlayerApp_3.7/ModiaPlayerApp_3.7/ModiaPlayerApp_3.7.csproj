@@ -119,6 +119,9 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="BatchSendPage.xaml.cs">
+      <DependentUpon>BatchSendPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="breakschedule.xaml.cs">
       <DependentUpon>breakschedule.xaml</DependentUpon>
     </Compile>
@@ -128,11 +131,17 @@
     <Compile Include="CopyAndPaste.xaml.cs">
       <DependentUpon>CopyAndPaste.xaml</DependentUpon>
     </Compile>
+    <Compile Include="HTTPgetPage1.xaml.cs">
+      <DependentUpon>HTTPgetPage1.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Main.xaml.cs">
       <DependentUpon>Main.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MessageWebSocket.xaml.cs">
+      <DependentUpon>MessageWebSocket.xaml</DependentUpon>
     </Compile>
     <Compile Include="Modiaplayer2.xaml.cs">
       <DependentUpon>Modiaplayer2.xaml</DependentUpon>
@@ -141,6 +150,12 @@
     <Compile Include="ScenarioModel.cs" />
     <Compile Include="StreamSocketAndListenerPage.xaml.cs">
       <DependentUpon>StreamSocketAndListenerPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="StreamwebSocket.xaml.cs">
+      <DependentUpon>StreamwebSocket.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UDPSocketPage.xaml.cs">
+      <DependentUpon>UDPSocketPage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -165,6 +180,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="BatchSendPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="breakschedule.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -177,6 +196,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="HTTPgetPage1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Main.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -185,11 +208,23 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="MessageWebSocket.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Modiaplayer2.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="StreamSocketAndListenerPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="StreamwebSocket.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UDPSocketPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

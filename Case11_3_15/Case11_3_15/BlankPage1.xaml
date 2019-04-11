@@ -1,0 +1,25 @@
+﻿<Page
+    x:Class="Case11_3_15.BlankPage1"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Case11_3_15"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <StackPanel>
+        <StackPanel.Resources>
+            <Style TargetType="TextBlock">
+                <Setter Property="FontSize" Value="22"/>
+            </Style>
+        </StackPanel.Resources>
+        <Button Background="AntiqueWhite" Height="50" Width="50" Click="Button_Click" Style="{StaticResource NavigationBackButtonNormalStyle}"/>
+        <TextBlock Text="请输入待加密内容："/>
+        <TextBox Name="txtInput"/>
+        <Button Margin="0,25,0,0" Content="加密" Click="OnEncryptClick"/>
+        <Button Click="OnDecryptoClick">解密</Button>
+        <TextBlock Margin="0,25,0,0" Text="解密后："/>
+        <TextBlock Name="tbDecrypto" FontSize="28" Foreground="SkyBlue"/>
+    </StackPanel>
+</Page>

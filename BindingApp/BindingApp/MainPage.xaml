@@ -33,6 +33,7 @@
                 Converter={StaticResource StringFormatterValueConverter},
                 ConverterParameter=Released:\{0:d\}}"/>
         </StackPanel>
-        <ListView x:Name="PicturesListView" />
+        <ListView x:Name="PicturesListView" ScrollViewer.VerticalScrollBarVisibility="Visible" ScrollViewer.HorizontalScrollBarVisibility="Visible"
+                   CanReorderItems="True" AllowDrop="True" />
     </StackPanel>
 </Page>

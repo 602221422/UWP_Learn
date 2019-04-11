@@ -37,8 +37,33 @@ namespace ModiaPlayerApp_3._7
                 },
                 new ScenarioModel()
                 {
-                    Title="StreamSocketAndListenerPage",
+                    Title="TCP",
                     ClassType=typeof(StreamSocketAndListenerPage)
+                },
+                new ScenarioModel()
+                {
+                    Title="UDP",
+                    ClassType=typeof(UDPSocketPage)
+                },
+                new ScenarioModel()
+                {
+                    Title="BatchSendPage",
+                    ClassType=typeof(BatchSendPage)
+                },
+                new ScenarioModel()
+                {
+                    Title="MessageWebSocket",
+                    ClassType=typeof(MessageWebSocket)
+                },
+                new ScenarioModel()
+                {
+                    Title="StreamwebSocket",
+                    ClassType=typeof(StreamwebSocket)
+                },
+                new ScenarioModel()
+                {
+                    Title="HTTPgetPage1",
+                    ClassType=typeof(HTTPgetPage1)
                 },
             };
             return scenarios;

@@ -1,0 +1,24 @@
+﻿<Page
+    x:Class="Case11_3_15.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Case11_3_15"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <StackPanel>
+            <Button Name="btnPickInputFile" Content="输入文件..." Margin="5,14,0,10" Click="onInputFile"/>
+            <Button Name="btnPickOutputFile" Content="输出文件..." Margin="5,8,0,10" Click="onOutputFile"/>
+
+            <Line Margin="0,3,0,12" Stroke="LightGray" StrokeThickness="3"/>
+
+            <Button Content="保护文件" Click="onProtect"/>
+            <Button Content="解除保护" Click="onUnProtect"/>
+
+            <TextBlock Name="msgLabel" Margin="2,12,0,0" FontSize="20"/>
+        </StackPanel>
+    </Grid>
+</Page>

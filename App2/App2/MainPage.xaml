@@ -8,7 +8,11 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Grid>
-
-    </Grid>
+    <StackPanel>
+        <ScrollViewer x:Name="Control1" Height="270" ZoomMode="Enabled" IsVerticalScrollChainingEnabled="True"
+                     VerticalAlignment="Top"
+                    HorizontalAlignment="Left">
+            <Image Source="Assets/cliff.jpg" Stretch="None" />
+        </ScrollViewer>
+    </StackPanel>
 </Page>

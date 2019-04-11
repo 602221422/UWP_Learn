@@ -1,0 +1,33 @@
+﻿<Page
+    x:Class="App4.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:App4"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="300"/>
+        </Grid.RowDefinitions>
+        <ListView Grid.Row="1" Grid.Column="0" x:Name="SongLibraryList" CanReorderItems="True" ScrollViewer.HorizontalScrollBarVisibility="Visible" 
+                  ScrollViewer.VerticalScrollBarVisibility="Visible" ScrollViewer.IsVerticalRailEnabled="True" Margin="0,5,-15,5"
+                  Width="300">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <StackPanel Width="250" VerticalAlignment="Center" >
+                            <TextBlock Text="aaa"/>
+                            <TextBlock x:Name="NameTextBlock" Text="{Binding UserName}" Foreground="{ThemeResource SystemAccentColor}" FontWeight="Bold" Width="190" HorizontalAlignment="Left" TextWrapping="Wrap"/>
+                            <TextBlock x:Name="ArtistTextBlock" Text="{Binding Alias}"  Margin="0,0,0,3"/>
+                        </StackPanel>
+                        <Button Content="&#xE74D;" HorizontalAlignment="Right" Margin="10,0,2,0" FontFamily="Segoe MDL2 Assets" FontSize="20"/>
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </Grid>
+</Page>

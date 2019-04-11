@@ -1,0 +1,57 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.271
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Case11_3_15", "Case11_3_15\Case11_3_15.csproj", "{F8F00BCC-D387-4E46-AD49-200CF78BE671}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{037A000B-A90A-41CE-8F61-5825A97A914A}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\..\Downloads\CryptoApp\CryptoApp\CryptoApp\MainPage.xaml = ..\..\..\Downloads\CryptoApp\CryptoApp\CryptoApp\MainPage.xaml
+		..\..\..\Downloads\CryptoApp\CryptoApp\CryptoApp\MainPage.xaml.cs = ..\..\..\Downloads\CryptoApp\CryptoApp\CryptoApp\MainPage.xaml.cs
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|ARM = Debug|ARM
+		Debug|ARM64 = Debug|ARM64
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|ARM = Release|ARM
+		Release|ARM64 = Release|ARM64
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F8F00BCC-D387-4E46-AD49-200CF78BE671}.Debug|ARM.ActiveCfg = Debug|ARM
+		{F8F00BCC-D387-4E46-AD49-200CF78BE671}.Debug|ARM.Build.0 = Debug|ARM
+		{F8F00BCC-D387-4E46-AD49-200CF78BE671}.Debug|ARM.Deploy.0 = Debug|ARM
+		{F8F00BCC-D387-4E46-AD49-200CF78BE671}.Debug|ARM64.ActiveCfg = Debug|ARM64
+		{F8F00BCC-D387-4E46-AD49-200CF78BE671}.Debug|ARM64.Build.0 = Debug|ARM64
+		{F8F00BCC-D387-4E46-AD49-200CF78BE671}.Debug|ARM64.Deploy.0 = Debug|ARM64
+		{F8F00BCC-D387-4E46-AD49-200CF78BE671}.Debug|x64.ActiveCfg = Debug|x64
+		{F8F00BCC-D387-4E46-AD49-200CF78BE671}.Debug|x64.Build.0 = Debug|x64
+		{F8F00BCC-D387-4E46-AD49-200CF78BE671}.Debug|x64.Deploy.0 = Debug|x64
+		{F8F00BCC-D387-4E46-AD49-200CF78BE671}.Debug|x86.ActiveCfg = Debug|x86
+		{F8F00BCC-D387-4E46-AD49-200CF78BE671}.Debug|x86.Build.0 = Debug|x86
+		{F8F00BCC-D387-4E46-AD49-200CF78BE671}.Debug|x86.Deploy.0 = Debug|x86
+		{F8F00BCC-D387-4E46-AD49-200CF78BE671}.Release|ARM.ActiveCfg = Release|ARM
+		{F8F00BCC-D387-4E46-AD49-200CF78BE671}.Release|ARM.Build.0 = Release|ARM
+		{F8F00BCC-D387-4E46-AD49-200CF78BE671}.Release|ARM.Deploy.0 = Release|ARM
+		{F8F00BCC-D387-4E46-AD49-200CF78BE671}.Release|ARM64.ActiveCfg = Release|ARM64
+		{F8F00BCC-D387-4E46-AD49-200CF78BE671}.Release|ARM64.Build.0 = Release|ARM64
+		{F8F00BCC-D387-4E46-AD49-200CF78BE671}.Release|ARM64.Deploy.0 = Release|ARM64
+		{F8F00BCC-D387-4E46-AD49-200CF78BE671}.Release|x64.ActiveCfg = Release|x64
+		{F8F00BCC-D387-4E46-AD49-200CF78BE671}.Release|x64.Build.0 = Release|x64
+		{F8F00BCC-D387-4E46-AD49-200CF78BE671}.Release|x64.Deploy.0 = Release|x64
+		{F8F00BCC-D387-4E46-AD49-200CF78BE671}.Release|x86.ActiveCfg = Release|x86
+		{F8F00BCC-D387-4E46-AD49-200CF78BE671}.Release|x86.Build.0 = Release|x86
+		{F8F00BCC-D387-4E46-AD49-200CF78BE671}.Release|x86.Deploy.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B0DB3540-9E06-495A-BE2E-A727FC2E3FE8}
+	EndGlobalSection
+EndGlobal
